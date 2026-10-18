@@ -1,0 +1,32 @@
+{
+  "name": "genpark-personal-agent-dynamic-grocery-pantry-auto-replenisher-skill",
+  "version": "1.0.0",
+  "description": "Personal Agent Autonomous Smart Pantry & Dietary Grocery Replenisher. Tracks household food consumption velocities, calculates expiration decay curves, enforces dietary filters (organic, gluten-free, low-sugar), and synthesizes optimized grocery carts.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "generate_replenishment_basket",
+      "description": "Calculate household pantry deficits and generate dietary-aligned grocery replenishment order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pantry_inventory": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Current inventory with item_name, current_qty, daily_consumption_rate, days_until_expiration."
+          },
+          "dietary_rules": {
+            "type": "object",
+            "description": "Allergen exclusion (nuts, dairy), organic_preference (bool), weekly_budget_usd."
+          }
+        },
+        "required": [
+          "pantry_inventory"
+        ]
+      }
+    }
+  ]
+}
